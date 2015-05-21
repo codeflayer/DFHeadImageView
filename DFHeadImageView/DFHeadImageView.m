@@ -111,6 +111,10 @@
 
 #pragma mark UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
         // 拍照
         if ([self isCameraAvailable] && [self doesCameraSupportTakingPhotos]) {
@@ -124,10 +128,10 @@
             self.imagePickerVC.mediaTypes = mediaTypes;
             self.imagePickerVC.delegate = self;
             [[self viewController] presentViewController:self.imagePickerVC
-                               animated:YES
-                             completion:^(void){
-                                 NSLog(@"Picker View Controller is presented");
-                             }];
+                                                animated:YES
+                                              completion:^(void){
+                                                  NSLog(@"Picker View Controller is presented");
+                                              }];
         }
         
     } else if (buttonIndex == 1) {
@@ -140,10 +144,10 @@
             self.imagePickerVC.mediaTypes = mediaTypes;
             self.imagePickerVC.delegate = self;
             [[self viewController] presentViewController:self.imagePickerVC
-                               animated:YES
-                             completion:^(void){
-                                 NSLog(@"Picker View Controller is presented");
-                             }];
+                                                animated:YES
+                                              completion:^(void){
+                                                  NSLog(@"Picker View Controller is presented");
+                                              }];
         }
     }
 }
